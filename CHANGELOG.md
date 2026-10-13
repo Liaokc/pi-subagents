@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- A read-only child running `grep … 2>/dev/null` could be flagged `needs_attention` for repeated mutating tool failures: the redirect was counted as a file mutation, and successful output containing words like "error" was counted as a failure. Redirects to `/dev/null` no longer count as mutations, and mutating tools count as failed only when their result reports `isError: true`, regardless of output text. Thanks to [@Liaokc](https://github.com/Liaokc) for the fix. ([#2878](https://github.com/nicobailon/pi-subagents/issues/2878))
+
 ## [0.78.0] - 2026-10-12
 
 ### Highlights

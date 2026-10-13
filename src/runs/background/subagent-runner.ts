@@ -3154,7 +3154,7 @@ export async function runSubagent(
 				statusPayload.toolBudgetBlocked = true;
 			}
 			appendRecentStepOutput(step, resultText.split("\n").slice(-10));
-			if (toolSnapshot?.mutates && didMutatingToolFail(resultText)) {
+			if (toolSnapshot?.mutates && didMutatingToolFail(event.message)) {
 				const state = mutatingFailureStates[flatIndex]!;
 				recordMutatingFailure(state, omitUndefinedProperties({
 					tool: toolSnapshot.tool,

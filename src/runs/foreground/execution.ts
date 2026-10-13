@@ -1164,7 +1164,7 @@ async function runSingleAttempt(
 						);
 					}
 					appendRecentOutput(progress, resultText.split("\n").slice(-10));
-					if (toolSnapshot?.mutates && didMutatingToolFail(resultText)) {
+					if (toolSnapshot?.mutates && didMutatingToolFail(evt.message)) {
 						recordMutatingFailure(mutatingFailures, {
 							tool: toolSnapshot.tool,
 							path: toolSnapshot.path,
